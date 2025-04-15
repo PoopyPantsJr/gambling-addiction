@@ -1,0 +1,92 @@
+:root {
+  --primary-color: #1e1e2f;
+  --secondary-color: #f9f9f9;
+  --accent-color: #4caf50;
+  --text-color: #222;
+  --background-color: #fff;
+}
+
+body.dark {
+  --primary-color: #f9f9f9;
+  --secondary-color: #1e1e2f;
+  --text-color: #f9f9f9;
+  --background-color: #222;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+header, footer {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 1rem;
+  text-align: center;
+}
+
+nav {
+  padding: 1rem;
+  text-align: center;
+  background-color: #efefef;
+}
+
+nav input[type="text"] {
+  padding: 0.5rem;
+  width: 80%;
+  max-width: 400px;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+section, aside {
+  flex: 1 1 300px;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+}
+
+#events-container, #markets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.event-card, .market-card {
+  padding: 0.75rem;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#betting-slip {
+  max-width: 300px;
+  background-color: #fafafa;
+}
+
+#toggleTheme {
+  background: var(--accent-color);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  nav input[type="text"] {
+    width: 95%;
+  }
+}

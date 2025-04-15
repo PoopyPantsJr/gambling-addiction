@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DumbBets - Live Bets</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">DumbBets</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Live Bets</a></li>
+        </ul>
+      </nav>
+      <button id="toggleTheme" class="theme-toggle-btn">🌓</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="live-bets-section">
+      <h2>Your Current Bets</h2>
+      <ul id="live-bets-list">
+        <!-- Bets will be loaded here -->
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 DumbBets by PoopyPantsJr | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Load current bets from localStorage
+    const slipData = JSON.parse(localStorage.getItem('dumbbets-slip') || '[]');
+    const list = document.getElementById('live-bets-list');
+
+    if (slipData.length === 0) {
+      const li = document.createElement('li');
+      li.textContent = "You haven't placed any bets yet.";
+      list.appendChild(li);
+    } else {
+      slipData.forEach(([team, odds]) => {
+        const li = document.createElement('li');
+        li.textContent = `${team} @ ${odds}`;
+        list.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
